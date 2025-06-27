@@ -1,0 +1,30 @@
+# Spanish translations for your Django project
+# Copyright (C) 2025
+# This file is distributed under the same license as the Django project.
+# Juan Esteban Bedoya Vásquez <tu_correo@ejemplo.com>, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: finance_backend 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-06-26 16:00-0500\n"
+"PO-Revision-Date: 2025-06-26 16:00-0500\n"
+"Last-Translator: Juan Esteban Bedoya Vásquez <tu_correo@ejemplo.com>\n"
+"Language-Team: Spanish\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: users/views.py:23
+msgid "User created successfully"
+msgstr "Usuario creado con éxito"
+
+#: users/views.py:39
+msgid "User logged in successfully"
+msgstr "Usuario logueado con exito"
+
+
+#: users/views.py:45
+msgid "Invalid credentials"
+msgstr "Credenciales invalidas"
