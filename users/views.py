@@ -1,11 +1,11 @@
-from django.shortcuts import render, get_object_or_404
-from rest_framework.views import APIView
 from .serializers import UserRegisterSerializer, UserResponse, UserRLoginSerializer
-from .models import User
-from rest_framework.response import Response
-from rest_framework import status
-from django.utils.translation import gettext_lazy as _
 from rest_framework_simplejwt.tokens import RefreshToken
+from django.utils.translation import gettext_lazy as _
+from django.shortcuts import get_object_or_404
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from rest_framework import status
+from .models import User
 
 # Create your views here.
 
@@ -40,7 +40,10 @@ class UserLoginView(APIView):
                 {
                     "message": _("User logged in successfully"),
                     "user": UserResponse(user).data,
-                    "refresh": str(refresh),
+                    "token": {
+                        "access": str(refresh.access_token),
+                        "refresh": str(refresh),
+                    },
                 },
                 status=status.HTTP_200_OK,
             )
