@@ -5,6 +5,7 @@ from .models import User
 from rest_framework.response import Response
 from rest_framework import status
 from django.utils.translation import gettext_lazy as _
+from rest_framework_simplejwt.tokens import RefreshToken
 
 # Create your views here.
 
@@ -34,10 +35,12 @@ class UserLoginView(APIView):
     def post(self, request):
         user = get_object_or_404(User, username=request.data["username"])
         if user.check_password(request.data["password"]):
+            refresh = RefreshToken.for_user(user=user)
             return Response(
                 {
                     "message": _("User logged in successfully"),
                     "user": UserResponse(user).data,
+                    "refresh": str(refresh),
                 },
                 status=status.HTTP_200_OK,
             )
